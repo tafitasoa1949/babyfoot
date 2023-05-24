@@ -1,0 +1,20 @@
+create database babyfoot;
+
+use babyfoot;
+
+create table joueur(
+     id serial primary key not null,
+     nom varchar(50) not null,
+     mise decimal(13,2) default 0 not null,
+     score int default 0 not null
+);
+
+create table jetonaire(
+     joueur1 int references joueur(id),
+     joueur2 int references joueur(id)
+     ,
+     mise1 decimal(13,2) default 0 not null,
+     mise2 decimal(13,2) default 0  not null,
+     tarif decimal(13,2) default 0,
+     daty timestamp not null
+);
